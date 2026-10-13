@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@font-face { font-family: "Canela"; src: url("/fonts/canela/Canela-Regular-Trial.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Canela"; src: url("/fonts/canela/Canela-RegularItalic-Trial.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Canela"; src: url("/fonts/canela/Canela-Medium-Trial.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Canela"; src: url("/fonts/canela/Canela-Bold-Trial.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Neue Haas Grotesk"; src: local("Neue Haas Grotesk Text Pro"), local("NeueHaasGroteskTextPro"), local("Neue Haas Grotesk"); font-display: swap; }
+@font-face { font-family: "Aptos Mono"; src: local("Aptos Mono"), local("AptosMono"); font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/fonts/instrument-serif-regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/fonts/instrument-serif-italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("/fonts/ibm-plex-mono.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+@theme {
+  --color-oxblood: #7a0f1c;
+  --color-obsidian: #0b0b0b;
+  --color-parchment: #ede7e1;
+  --font-display: "Canela", "Instrument Serif", Georgia, serif;
+  --font-sans: "Neue Haas Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Aptos Mono", "IBM Plex Mono", monospace;
+}
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body { margin: 0; background: var(--color-parchment); color: var(--color-obsidian); letter-spacing: 0; }
+  button, a, summary { -webkit-tap-highlight-color: transparent; }
+  button, summary { cursor: pointer; }
+  button { font: inherit; }
+  :focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+  ::selection { background: var(--color-oxblood); color: var(--color-parchment); }
+  [hidden] { display: none !important; }
+}
+@layer components {
+  .page-gutter { padding-inline: 24px; }
+  .section-label { font-family: var(--font-mono); font-size: 11px; line-height: 1.6; text-transform: uppercase; }
+  .editorial-title { font-family: var(--font-display); font-weight: 400; font-size: 52px; line-height: 1.02; }
+  .text-link { display: inline-flex; align-items: center; gap: 24px; padding-block: 12px; border-bottom: 1px solid currentColor; font-size: 14px; }
+  .text-link svg { width: 18px; height: 18px; transition: transform 180ms ease; }
+  .text-link:hover svg { transform: translateX(4px); }
+  .icon-button { display: inline-grid; place-items: center; height: 44px; width: 44px; border: 1px solid currentColor; border-radius: 50%; transition: background 180ms, color 180ms; }
+  .icon-button:hover { background: var(--color-parchment); color: var(--color-obsidian); }
+  .icon-button svg { height: 19px; width: 19px; }
+  .navigation-link { position: relative; padding-block: 8px; font-size: 13px; }
+  .navigation-link::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: currentColor; transition: width 180ms; }
+  .navigation-link:hover::after { width: 100%; }
+}
+.hero { height: min(680px, calc(100svh - 140px)); min-height: 540px; }
+.hero-image { object-position: center 58%; }
+.hero-shade { background: linear-gradient(180deg, rgb(11 11 11 / 48%) 0%, rgb(11 11 11 / 6%) 50%, rgb(11 11 11 / 60%) 100%); }
+.hero-title { font-size: 96px; line-height: .96; }
+.wordmark { font-family: Georgia, serif; font-weight: 700; font-style: italic; font-size: 39px; line-height: 1; }
+.car-tab[aria-selected="true"] { background: var(--color-parchment); color: var(--color-obsidian); }
+.car-tab { padding: 10px 18px; font-size: 12px; transition: background 180ms, color 180ms; }
+.car-frame { aspect-ratio: 16 / 9; }
+.car-frame img { width: 100%; height: 100%; object-fit: cover; }
+.department summary { list-style: none; }
+.department summary::-webkit-details-marker { display: none; }
+.department[open] .plus-icon { transform: rotate(45deg); }
+.plus-icon { transition: transform 180ms; }
+.team-photo { aspect-ratio: 4 / 5; object-position: 43% center; }
+.partner-name { font-weight: 600; font-size: 23px; }
+.join-title { font-size: 82px; }
+.mobile-menu a { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgb(11 11 11 / 15%); font-family: var(--font-display); font-size: 32px; }
+@media (min-width: 768px) { .page-gutter { padding-inline: 48px; } .editorial-title { font-size: 64px; } }
+@media (min-width: 1280px) { .page-gutter { padding-inline: 64px; } .hero-title { font-size: 112px; } .editorial-title { font-size: 72px; } }
+@media (min-width: 1800px) { .hero { height: min(900px, calc(100svh - 150px)); } .hero-title { font-size: 132px; } }
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+  .hero { height: calc(100svh - 136px); min-height: 550px; max-height: 740px; }
+  .hero-title { font-size: 65px; }
+  .hero-image { object-position: 58% center; }
+  .partner-name { font-size: 20px; }
+  .hero-shade { background: linear-gradient(180deg, rgb(11 11 11 / 48%) 0%, transparent 55%, rgb(11 11 11 / 75%) 100%); }
+  .join-title { font-size: 56px; }
+  .team-photo { aspect-ratio: 5 / 4; object-position: center 35%; }
+}
+@media (max-width: 374px) { .hero-title { font-size: 55px; } .editorial-title { font-size: 44px; } .join-title { font-size: 48px; } .partner-name { font-size: 18px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
