@@ -1,16 +1,51 @@
 ---
-import '../styles/global.css';
-import { ArrowRight, ArrowUpRight, ArrowDown, ArrowLeft, Menu, X, Plus, Flag, Zap } from 'lucide-astro';
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ArrowDown,
+  ArrowLeft,
+  Menu,
+  X,
+  Plus,
+  Flag,
+  Zap,
+} from "lucide-astro";
 
 const departments = [
-  { number: '01', title: 'Engineering', text: 'Turn theory into a car that can compete. Explore aerodynamics, chassis, suspension, powertrain, electronics, and vehicle dynamics with a team that learns by building.' },
-  { number: '02', title: 'Business & operations', text: 'Run the team behind the team. Build sponsor relationships, manage budgets, organize competition logistics, and help make an ambitious student project possible.' },
-  { number: '03', title: 'Design & media', text: 'Tell the story of Rutgers racing. Bring your perspective to photography, video, graphic design, and the way our team connects with the world.' },
+  {
+    number: "01",
+    title: "Engineering",
+    text: "Turn theory into a car that can compete. Explore aerodynamics, chassis, suspension, powertrain, electronics, and vehicle dynamics with a team that learns by building.",
+  },
+  {
+    number: "02",
+    title: "Business & operations",
+    text: "Run the team behind the team. Build sponsor relationships, manage budgets, organize competition logistics, and help make an ambitious student project possible.",
+  },
+  {
+    number: "03",
+    title: "Design & media",
+    text: "Tell the story of Rutgers racing. Bring your perspective to photography, video, graphic design, and the way our team connects with the world.",
+  },
 ];
 const questions = [
-  { question: 'Do I need experience to join?', answer: 'No. Curiosity and a willingness to learn are what matter. Our members teach one another, and new students can contribute while developing their skills.' },
-  { question: 'Is RFR only for engineering students?', answer: 'RFR welcomes Rutgers students across majors. Business, design, communications, and operations are as essential to the team as the engineering behind the car.' },
-  { question: 'How do I get involved?', answer: 'Email rutgerssae@gmail.com to introduce yourself and ask about the next team meeting. Tell us your major and what interests you, and we can help you find a place to start.' },
+  {
+    question: "Do I need experience to join?",
+    answer:
+      "No. Curiosity and a willingness to learn are what matter. Our members teach one another, and new students can contribute while developing their skills.",
+  },
+  {
+    question: "Is RFR only for engineering students?",
+    answer:
+      "RFR welcomes Rutgers students across majors. Business, design, communications, and operations are as essential to the team as the engineering behind the car.",
+  },
+  {
+    question: "How do I get involved?",
+    answer:
+      "Email rutgerssae@gmail.com to introduce yourself and ask about the next team meeting. Tell us your major and what interests you, and we can help you find a place to start.",
+  },
 ];
 ---
 
@@ -19,179 +54,554 @@ const questions = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Rutgers Formula Racing. Student-built. Race-proven. Discover the people, engineering, and ambition behind Rutgers University's Formula SAE team." />
+    <meta
+      name="description"
+      content="Rutgers Formula Racing. Student-built. Race-proven. Discover the people, engineering, and ambition behind Rutgers University's Formula SAE team."
+    />
     <meta name="theme-color" content="#7A0F1C" />
     <link rel="icon" type="image/svg+xml" href="/rfr-favicon.svg" />
-    <link rel="preload" href="/fonts/canela/Canela-Regular-Trial.otf" as="font" type="font/otf" crossorigin />
-    <title>Rutgers Formula Racing | Built by us. Driven by possibility.</title>
+    <link
+      rel="preload"
+      href="/fonts/canela/Canela-Regular-Trial.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <title>Rutgers Formula Racing</title>
   </head>
   <body class="font-display antialiased">
-    <a href="#main" class="fixed left-4 top-4 z-50 -translate-y-32 bg-oxblood px-5 py-3 text-parchment focus:translate-y-0">Skip to content</a>
-    <header class="sticky top-0 z-40 border-b border-obsidian/15 bg-parchment">
-      <div class="page-gutter flex h-[88px] items-center justify-between gap-6 max-md:h-[76px]">
-        <a href="#" class="flex items-center gap-4 text-oxblood" aria-label="Rutgers Formula Racing home">
-          <span class="wordmark border-r border-oxblood/30 pr-4">RFR</span>
-          <span class="text-[10px] font-medium uppercase leading-[1.4]">Rutgers<br />Formula Racing</span>
-        </a>
-        <nav class="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          <a href="#about" class="navigation-link">Our story</a><a href="#cars" class="navigation-link">The car</a><a href="#team" class="navigation-link">The team</a><a href="#partners" class="navigation-link">Our partners</a>
-        </nav>
-        <a href="#join" class="hidden items-center gap-7 bg-oxblood px-5 py-3.5 text-[12px] text-parchment md:flex">Join the team <ArrowUpRight size={16} aria-hidden="true" /></a>
-        <button id="menu-toggle" class="grid h-11 w-11 place-items-center md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><Menu id="menu-open-icon" size={24} /><X id="menu-close-icon" size={24} class="hidden" /></button>
-      </div>
-      <nav id="mobile-menu" class="mobile-menu page-gutter pb-6 md:hidden" aria-label="Mobile navigation" hidden>
-        <a href="#about">Our story <ArrowUpRight size={20} /></a><a href="#cars">The car <ArrowUpRight size={20} /></a><a href="#team">The team <ArrowUpRight size={20} /></a><a href="#partners">Our partners <ArrowUpRight size={20} /></a><a href="#join" class="text-oxblood">Join the team <ArrowUpRight size={20} /></a>
-      </nav>
-    </header>
+    <a
+      href="#main"
+      class="fixed left-4 top-4 z-50 -translate-y-32 bg-oxblood px-5 py-3 text-parchment focus:translate-y-0"
+    >
+      Skip to content
+    </a>
+    <Navbar />
     <main id="main">
-      <section class="hero relative isolate overflow-hidden text-parchment" aria-labelledby="hero-title">
-        <picture class="absolute inset-0 -z-20"><source media="(max-width: 767px)" srcset="/images/rfr-circuit.webp" /><img src="/images/rfr-racing.webp" alt="A student-built Rutgers Formula Racing car at the race circuit" width="3000" height="1338" fetchpriority="high" class="hero-image h-full w-full object-cover" /></picture>
+      <section
+        class="hero relative isolate overflow-hidden text-parchment"
+        aria-labelledby="hero-title"
+      >
+        <picture class="absolute inset-0 -z-20">
+          <source
+            media="(max-width: 767px)"
+            srcset="/images/rfr-circuit.webp"
+          />
+          <!-- <img
+            src="/images/rfr-racing.webp"
+            alt="A student-built Rutgers Formula Racing car at the race circuit"
+            width="3000"
+            height="1338"
+            fetchpriority="high"
+            class="hero-image h-full w-full object-cover"
+          /> -->
+          <img
+            src="/images/todd.JPG"
+            alt="A student-built Rutgers Formula Racing car at the race circuit"
+            width="3000"
+            height="1338"
+            fetchpriority="high"
+            class="hero-image h-full w-full object-cover"
+          />
+        </picture>
         <div class="hero-shade absolute inset-0 -z-10" aria-hidden="true"></div>
         <div class="page-gutter flex h-full flex-col justify-between py-10 md:py-12">
           <div>
-            <h1 id="hero-title" class="hero-title font-display font-normal">Rutgers<br /><span class="italic">Formula Racing.</span></h1>
+            <h1 id="hero-title" class="hero-title font-display font-normal">
+              Rutgers
+              <br />
+              <span class="italic">Formula Racing.</span>
+            </h1>
           </div>
           <div class="flex items-end justify-between gap-8 border-t border-parchment/40 pt-6">
-            <div><p class="mb-5 max-w-[330px] text-[17px] leading-relaxed">Built by us.<br />Driven by possibility.</p></div>
-            
-            <a href="#about" class="icon-button shrink-0" aria-label="Scroll to our story" title="Our story"><ArrowDown aria-hidden="true" /></a>
+            <div>
+              <p class="mb-5 max-w-[330px] text-[17px] leading-relaxed">
+                Built by us.
+                <br />
+                Driven by possibility.
+              </p>
+            </div>
+
+            <a
+              href="#about"
+              class="icon-button shrink-0"
+              aria-label="Scroll to our story"
+              title="Our story"
+            >
+              <ArrowDown aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
 
-
       <!-- <div class="page-gutter flex min-h-[54px] items-center justify-between gap-5 border-b border-obsidian/20 py-3 text-oxblood"><span class="section-label">Racing at Rutgers since 1989</span><span class="section-label hidden sm:block">Engineered with purpose. Built together.</span><Flag size={17} strokeWidth={1.5} aria-hidden="true" /></div> -->
 
-      <section id="about" class="page-gutter py-20 md:py-28" aria-labelledby="about-title">
+      <section
+        id="about"
+        class="page-gutter py-20 md:py-28"
+        aria-labelledby="about-title"
+      >
         <div class="grid gap-9 md:grid-cols-[1fr_2fr]">
           <!-- <p class="section-label text-oxblood">01 / Beyond the classroom</p> -->
-          <h2 id="about-title" class="editorial-title">Racing accelerates<br /> <span class="italic text-oxblood">your future.</span></h2>
+          <h2 id="about-title" class="editorial-title">
+            Racing accelerates
+            <br /> <span class="italic text-oxblood">your future.</span>
+          </h2>
 
           <div class="ml-auto max-w-[480px]">
             <div class="mt-8 grid gap-7 md:grid-cols-1 md:gap-12">
-              <p class="text-[16px] leading-[1.8]">We are Rutgers Formula Racing. A team of students turning big ideas into something you can hear, feel, and drive.</p>
-              <div><p class="text-[14px] leading-[1.85] text-obsidian/70">Every year, we design, build, and race a Formula SAE car. Every day, we become better engineers, problem-solvers, and teammates.</p><a href="#team" class="text-link mt-5 text-oxblood">Meet the people behind the car <ArrowRight aria-hidden="true" /></a></div>
+              <p class="text-[16px] leading-[1.8]">
+                We are Rutgers Formula Racing. A team of students turning big
+                ideas into something you can hear, feel, and drive.
+              </p>
+              <div>
+                <p class="text-[14px] leading-[1.85] text-obsidian/70 font-sans">
+                  Every year, we design, build, and race a Formula SAE car.
+                  Every day, we become better engineers, problem-solvers, and
+                  teammates.
+                </p>
+                <a href="#team" class="text-link mt-5 text-oxblood font-sans">
+                  Meet the people behind the car{" "}
+                  <ArrowRight aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div class="mt-16 grid grid-cols-2 gap-y-9 border-t border-obsidian/25 pt-9 md:mt-20 md:grid-cols-4">
-          {[['1989', 'Our starting line'], ['100+', 'Students. One team.'], ['11', 'Core teams'], ['40+', 'Industry supporters']].map(([value, label], index) => <div class:list={['pl-5 md:pl-8', index === 0 ? 'border-l-2 border-oxblood' : 'border-l border-obsidian/25']}><p class="font-display text-[52px] leading-none text-oxblood md:text-[62px]">{value}</p><p class="section-label mt-4 text-obsidian/65">{label}</p></div>)}
+          {[
+            ["1989", "Our starting line"],
+            ["100+", "Students. One team."],
+            ["11", "Core teams"],
+            ["40+", "Industry supporters"],
+          ].map(([value, label], index) => (
+            <div
+              class:list={[
+                "pl-5 md:pl-8",
+                index === 0
+                  ? "border-l-2 border-oxblood"
+                  : "border-l border-obsidian/25",
+              ]}
+            >
+              <p class="font-display text-[52px] leading-none text-oxblood md:text-[62px]">
+                {value}
+              </p>
+              <p class="section-label mt-4 text-obsidian/65">{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section id="cars" class="bg-obsidian text-parchment" aria-labelledby="car-title">
+      <!-- <section
+        id="cars"
+        class="bg-obsidian text-parchment"
+        aria-labelledby="car-title"
+      >
         <div class="page-gutter pb-12 pt-16 md:pt-20">
-          <div class="flex flex-wrap items-start justify-between gap-7"><div>
-            <!-- <p class="section-label mb-6 text-parchment/60">02 / The pursuit of performance</p> -->
-            <h2 id="car-title" class="editorial-title">Ambition, <span class="italic">in motion.</span></h2></div><p class="max-w-[280px] pt-2 text-[14px] leading-[1.8] text-parchment/70 md:pt-12">Thousands of decisions. Countless late nights. One car that brings it all together.</p></div>
+          <div class="flex flex-wrap items-start justify-between gap-7">
+            <div>
+              <h2 id="car-title" class="editorial-title">
+                Ambition, <span class="italic">in motion.</span>
+              </h2>
+            </div>
+            <p class="max-w-[280px] pt-2 text-[14px] leading-[1.8] text-parchment/70 md:pt-12">
+              Thousands of decisions. Countless late nights. One car that brings
+              it all together.
+            </p>
+          </div>
           <div class="mt-9 flex flex-wrap items-center justify-between gap-5 border-t border-parchment/25 pt-6">
-            <div class="flex border border-parchment/35" role="tablist" aria-label="Car gallery"><button id="tab-track" class="car-tab" role="tab" aria-selected="true" aria-controls="panel-track" tabindex="0">On the circuit</button><button id="tab-driver" class="car-tab" role="tab" aria-selected="false" aria-controls="panel-driver" tabindex="-1">In the cockpit</button></div>
-            <!-- <span class="section-label flex items-center gap-2 text-parchment/70"><Zap size={14} aria-hidden="true" /> A new chapter in electric racing</span> -->
+            <div
+              class="flex border border-parchment/35"
+              role="tablist"
+              aria-label="Car gallery"
+            >
+              <button
+                id="tab-track"
+                class="car-tab"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-track"
+                tabindex="0"
+              >
+                On the circuit
+              </button>
+              <button
+                id="tab-driver"
+                class="car-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-driver"
+                tabindex="-1"
+              >
+                In the cockpit
+              </button>
+            </div>
+            
           </div>
         </div>
-        <div id="panel-track" role="tabpanel" aria-labelledby="tab-track" tabindex="0"><div class="car-frame overflow-hidden"><img src="/images/rfr-circuit.webp" alt="Rutgers Formula Racing car 258 taking a turn on the test circuit" loading="lazy" width="1592" height="2000" class="object-[center_56%]" /></div></div>
-        <div id="panel-driver" role="tabpanel" aria-labelledby="tab-driver" tabindex="0" hidden><div class="car-frame overflow-hidden"><img src="/images/rfr-driver.webp" alt="A Rutgers racing driver strapped into the team's Formula SAE car" loading="lazy" width="1920" height="1080" /></div></div>
-        <div class="page-gutter flex flex-wrap items-center justify-between gap-6 py-6">
-          <div><p id="gallery-caption" class="text-[14px]">From the drawing board to the racing line.</p><p class="section-label mt-2 text-parchment/50">Rutgers Formula Racing / From our archive</p></div>
-          <div class="flex items-center gap-5"><span id="gallery-count" class="section-label text-parchment/65" aria-live="polite">01 / 02</span><button class="icon-button" id="gallery-prev" aria-label="Previous car photograph" title="Previous photograph"><ArrowLeft aria-hidden="true" /></button><button class="icon-button" id="gallery-next" aria-label="Next car photograph" title="Next photograph"><ArrowRight aria-hidden="true" /></button></div>
+        <div
+          id="panel-track"
+          role="tabpanel"
+          aria-labelledby="tab-track"
+          tabindex="0"
+        >
+          <div class="car-frame overflow-hidden">
+            <img
+              src="/images/rfr-circuit.webp"
+              alt="Rutgers Formula Racing car 258 taking a turn on the test circuit"
+              loading="lazy"
+              width="1592"
+              height="2000"
+              class="object-[center_56%]"
+            />
+          </div>
         </div>
-        <!-- <div class="page-gutter grid gap-7 border-t border-parchment/25 py-9 md:grid-cols-3 md:gap-12"><div><p class="section-label text-parchment/50">The challenge</p><p class="mt-3 text-[15px]">Design. Manufacture. Compete.</p></div><div><p class="section-label text-parchment/50">The next chapter</p><p class="mt-3 text-[15px]">Formula SAE Electric. Debuted in 2023.</p></div><div><p class="section-label text-parchment/50">The constant</p><p class="mt-3 text-[15px]">Built by Rutgers students, from the ground up.</p></div></div> -->
-      </section>
+        <div
+          id="panel-driver"
+          role="tabpanel"
+          aria-labelledby="tab-driver"
+          tabindex="0"
+          hidden
+        >
+          <div class="car-frame overflow-hidden">
+            <img
+              src="/images/rfr-driver.webp"
+              alt="A Rutgers racing driver strapped into the team's Formula SAE car"
+              loading="lazy"
+              width="1920"
+              height="1080"
+            />
+          </div>
+        </div>
+        <div class="page-gutter flex flex-wrap items-center justify-between gap-6 py-6">
+          <div>
+            <p id="gallery-caption" class="text-[14px]">
+              From the drawing board to the racing line.
+            </p>
+            <p class="section-label mt-2 text-parchment/50">
+              Rutgers Formula Racing / From our archive
+            </p>
+          </div>
+          <div class="flex items-center gap-5">
+            <span
+              id="gallery-count"
+              class="section-label text-parchment/65"
+              aria-live="polite"
+            >
+              01 / 02
+            </span>
+            <button
+              class="icon-button"
+              id="gallery-prev"
+              aria-label="Previous car photograph"
+              title="Previous photograph"
+            >
+              <ArrowLeft aria-hidden="true" />
+            </button>
+            <button
+              class="icon-button"
+              id="gallery-next"
+              aria-label="Next car photograph"
+              title="Next photograph"
+            >
+              <ArrowRight aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </section> -->
 
-      <section id="team" class="page-gutter grid gap-12 py-20 md:grid-cols-2 md:gap-20 md:py-28" aria-labelledby="team-title">
+      <section
+        id="team"
+        class="page-gutter grid gap-12 py-20 md:grid-cols-2 md:gap-20 md:py-28"
+        aria-labelledby="team-title"
+      >
         <div class="flex flex-col justify-center">
           <!-- <p class="section-label mb-7 text-oxblood">03 / Many minds. One mission.</p> -->
-          <h2 id="team-title" class="editorial-title">The real engine<br />is <span class="italic text-oxblood">our people.</span></h2>
-          <p class="mt-7 max-w-[420px] text-[15px] leading-[1.85] text-obsidian/70">Engineers. Strategists. Creatives. A shared obsession with making things better, and the belief that we can build something extraordinary together.</p>
-          <div class="mt-9 border-t border-obsidian/25">{departments.map((department) => <details class="department border-b border-obsidian/25"><summary class="flex items-center gap-5 py-5"><span class="section-label text-oxblood">{department.number}</span><span class="flex-1 text-[16px]">{department.title}</span><Plus class="plus-icon" size={18} strokeWidth={1.5} aria-hidden="true" /></summary><p class="pb-6 pl-10 text-[14px] leading-[1.85] text-obsidian/70">{department.text}</p></details>)}</div>
-          <a href="#join" class="text-link mt-7 self-start text-oxblood">Find your place on the team <ArrowRight aria-hidden="true" /></a>
+          <h2 id="team-title" class="editorial-title">
+            The real engine
+            <br />
+            is <span class="italic text-oxblood">our people.</span>
+          </h2>
+          <p class="mt-7 max-w-[420px] text-[15px] leading-[1.85] text-obsidian/70 font-sans">
+            Engineers. Strategists. Creatives. A shared obsession with making
+            things better, and the belief that we can build something
+            extraordinary together.
+          </p>
+          <div class="mt-9 border-t border-obsidian/25">
+            {departments.map((department) => (
+              <details class="department border-b border-obsidian/25">
+                <summary class="flex items-center gap-5 py-5">
+                  <span class="section-label text-oxblood">
+                    {department.number}
+                  </span>
+                  <span class="flex-1 text-[16px]">{department.title}</span>
+                  <Plus
+                    class="plus-icon"
+                    size={18}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                </summary>
+                <p class="pb-6 pl-10 text-[14px] leading-[1.85] text-obsidian/70 font-sans">
+                  {department.text}
+                </p>
+              </details>
+            ))}
+          </div>
+          <a href="#join" class="text-link mt-7 self-start text-oxblood font-sans">
+            Find your place on the team <ArrowRight aria-hidden="true" />
+          </a>
         </div>
-        <figure><img src="/images/rfr-driver.webp" alt="An RFR driver getting ready to race in a student-built car" class="team-photo w-full object-cover" loading="lazy" width="1920" height="1080" /><figcaption class="mt-4 flex justify-between gap-4 section-label text-obsidian/55"><span>Every role moves us forward.</span><span>RFR / On the ground</span></figcaption></figure>
+        <figure>
+          <img
+            src="/images/rfr-driver.webp"
+            alt="An RFR driver getting ready to race in a student-built car"
+            class="team-photo w-full object-cover"
+            loading="lazy"
+            width="1920"
+            height="1080"
+          />
+        </figure>
       </section>
 
-      <section id="partners" class="page-gutter border-t border-obsidian/25 pb-20 pt-12 md:pb-24 md:pt-16" aria-labelledby="partners-title">
+      <section
+        id="partners"
+        class="page-gutter border-t border-obsidian/25 pb-20 pt-12 md:pb-24 md:pt-16"
+        aria-labelledby="partners-title"
+      >
         <div class="grid gap-8 md:grid-cols-[1fr_2fr]">
           <!-- <p class="section-label text-oxblood">04 / Shared ambition</p> -->
           <div>
             <div>
-              <h2 id="partners-title" class="editorial-title">Great things are<br />built <span class="italic text-oxblood">together.</span></h2>
+              <h2 id="partners-title" class="editorial-title">
+                Great things are
+                <br />
+                built <span class="italic text-oxblood">together.</span>
+              </h2>
             </div>
-            
           </div>
           <div class="mt-6 flex flex-col flex-wrap items-start justify-between gap-6 justify-self-end">
-              <p class="max-w-[410px] text-[14px] leading-[1.85] text-obsidian/70 ml-auto">Our supporters put tools in our hands and possibility on the horizon. Their investment in our students goes far beyond the finish line.</p>
-              <a href="mailto:rutgerssae@gmail.com?subject=Partner%20with%20Rutgers%20Formula%20Racing" class="text-link text-oxblood">Become a partner <ArrowUpRight aria-hidden="true" /></a>
-            </div>
+            <p class="max-w-[410px] text-[14px] leading-[1.85] text-obsidian/70 ml-auto font-sans">
+              Our supporters put tools in our hands and possibility on the
+              horizon. Their investment in our students goes far beyond the
+              finish line.
+            </p>
+            <a
+              href="mailto:rutgerssae@gmail.com?subject=Partner%20with%20Rutgers%20Formula%20Racing"
+              class="text-link text-oxblood font-sans"
+            >
+              Become a partner <ArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
         </div>
         <div class="mt-12 grid grid-cols-2 items-center gap-x-8 gap-y-10 border-y border-obsidian/20 py-10 text-center md:grid-cols-4 md:gap-10">
-          <a href="https://soe.rutgers.edu/" target="_blank" rel="noopener noreferrer" aria-label="Rutgers School of Engineering, opens in a new tab"><span class="font-display text-[35px] leading-none text-oxblood">Rutgers</span><span class="mt-1 block text-[10px] uppercase">School of Engineering</span></a>
-          <a href="https://totalenergies.com/" target="_blank" rel="noopener noreferrer" class="partner-name transition-colors hover:text-oxblood" aria-label="TotalEnergies, opens in a new tab">TotalEnergies</a>
-          <a href="https://www.gwstoolgroup.com/" target="_blank" rel="noopener noreferrer" class="partner-name transition-colors hover:text-oxblood" aria-label="GWS Tool Group, opens in a new tab">GWS <span class="block text-[10px] uppercase font-normal">Tool Group</span></a>
-          <a href="https://www.marotta.com/" target="_blank" rel="noopener noreferrer" class="partner-name transition-colors hover:text-oxblood" aria-label="Marotta Controls, opens in a new tab">MAROTTA<span class="block text-[10px] uppercase font-normal">Controls</span></a>
+          The sponsors will go here, modern style with 
         </div>
       </section>
 
-      <section id="join" class="page-gutter bg-oxblood py-16 text-parchment md:py-20" aria-labelledby="join-title">
+      <section
+        id="join"
+        class="page-gutter bg-oxblood py-16 text-parchment md:py-20"
+        aria-labelledby="join-title"
+      >
         <div class="grid gap-9 md:grid-cols-[1.5fr_1fr] md:gap-20">
           <div>
             <!-- <p class="section-label mb-7 text-parchment/70">05 / Your starting line</p> -->
-            <h2 id="join-title" class="join-title font-display leading-[1.02]">Your curiosity.<br />Our <span class="italic">next chapter.</span></h2></div><div class="flex flex-col items-start justify-end"><p class="max-w-[380px] text-[16px] leading-[1.85] text-parchment/85">You don't need to know everything. You just need to want to learn. Bring your ideas, your perspective, and your ambition. We'll build the rest together.</p><a href="mailto:rutgerssae@gmail.com?subject=Joining%20Rutgers%20Formula%20Racing&body=Hi%20RFR%2C%0A%0AI%27m%20interested%20in%20joining%20the%20team.%0AName%3A%20%0AMajor%3A%20%0AYear%3A%20%0AWhat%20interests%20me%3A%20%0A%0AI%27d%20love%20to%20hear%20about%20the%20next%20team%20meeting." class="mt-8 inline-flex items-center gap-10 bg-parchment px-6 py-4 text-[13px] text-oxblood transition-colors hover:bg-parchment/85">Start the conversation <ArrowUpRight size={19} aria-hidden="true" /></a><p class="section-label mt-5 text-parchment/65">All majors. All experience levels.</p></div></div>
+            <h2 id="join-title" class="join-title font-display leading-[1.02]">
+              Your curiosity.
+              <br />
+              Our <span class="italic">next chapter.</span>
+            </h2>
+          </div>
+          <div class="flex flex-col items-start justify-end">
+            <p class="max-w-[380px] text-[16px] leading-[1.85] text-parchment/85 font-sans">
+              You don't need to know everything. You just need to want to learn.
+              Bring your ideas, your perspective, and your ambition. We'll build
+              the rest together.
+            </p>
+            <a
+              href="mailto:rutgerssae@gmail.com?subject=Joining%20Rutgers%20Formula%20Racing&body=Hi%20RFR%2C%0A%0AI%27m%20interested%20in%20joining%20the%20team.%0AName%3A%20%0AMajor%3A%20%0AYear%3A%20%0AWhat%20interests%20me%3A%20%0A%0AI%27d%20love%20to%20hear%20about%20the%20next%20team%20meeting."
+              class="mt-8 inline-flex items-center gap-10 bg-parchment px-6 py-4 font-sans text-[14px] font-medium text-oxblood transition-colors hover:bg-parchment/85"
+            >
+              Start the conversation{" "}
+              <ArrowUpRight size={19} aria-hidden="true" />
+            </a>
+            <p class="section-label mt-5 text-[12px] text-parchment/85">
+              All majors. All experience levels.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section class="page-gutter grid gap-9 py-16 md:grid-cols-[1fr_2fr] md:gap-20 md:py-20" aria-labelledby="faq-title"><div><p class="section-label mb-4 text-oxblood">Before you get started</p><h2 id="faq-title" class="font-display text-[40px] leading-tight">A little more<br />about joining.</h2></div><div class="border-t border-obsidian/25">{questions.map((question) => <details class="department border-b border-obsidian/25"><summary class="flex items-center justify-between gap-5 py-5 text-[15px]">{question.question}<Plus class="plus-icon shrink-0" size={18} aria-hidden="true" /></summary><p class="max-w-[680px] pb-6 pr-6 text-[14px] leading-[1.85] text-obsidian/70">{question.answer}</p></details>)}</div></section>
+      <section
+        class="page-gutter grid gap-9 py-16 md:grid-cols-[1fr_2fr] md:gap-20 md:py-20"
+        aria-labelledby="faq-title"
+      >
+        <div>
+          <p class="section-label mb-4 text-oxblood">Before you get started</p>
+          <h2 id="faq-title" class="font-display text-[40px] leading-tight">
+            A little more
+            <br />
+            about joining.
+          </h2>
+        </div>
+        <div class="border-t border-obsidian/25">
+          {questions.map((question) => (
+            <details class="department border-b border-obsidian/25">
+              <summary class="flex items-center justify-between gap-5 py-5 text-[15px]">
+                {question.question}
+                <Plus class="plus-icon shrink-0" size={18} aria-hidden="true" />
+              </summary>
+              <p class="max-w-[680px] pb-6 pr-6 text-[14px] leading-[1.85] text-obsidian/70 font-sans">
+                {question.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
     </main>
 
-    <footer class="page-gutter bg-obsidian pb-6 pt-14 text-parchment">
-      <div class="grid gap-10 pb-12 md:grid-cols-[2fr_1fr_1fr]"><div><a href="#" class="font-display text-[35px] leading-tight">Rutgers<br /><span class="italic">Formula Racing.</span></a><p class="section-label mt-5 text-parchment/50">New Brunswick, New Jersey<br />Built with Rutgers pride, since 1989.</p></div><div><p class="section-label mb-5 text-parchment/50">Explore</p><nav class="grid gap-3 text-[13px]" aria-label="Footer navigation"><a href="#about" class="hover:underline">Our story</a><a href="#cars" class="hover:underline">The car</a><a href="#team" class="hover:underline">The team</a><a href="#partners" class="hover:underline">Our partners</a></nav></div><div><p class="section-label mb-5 text-parchment/50">Get in touch</p><a href="mailto:rutgerssae@gmail.com" class="text-[13px] hover:underline">rutgerssae@gmail.com</a><p class="mt-4 text-[13px] leading-[1.8] text-parchment/70">140 Bevier Road<br />Piscataway, NJ 08854</p><a href="#join" class="text-link mt-3">Join the team <ArrowUpRight aria-hidden="true" /></a></div></div>
-      <div class="flex flex-wrap items-center justify-between gap-4 border-t border-parchment/20 pt-6 section-label text-parchment/50"><span>© {new Date().getFullYear()} Rutgers Formula Racing</span><a href="#" class="flex items-center gap-2 hover:text-parchment">Back to top <ArrowUpRight size={13} aria-hidden="true" /></a></div>
+    <footer class="page-gutter bg-obsidian pb-6 pt-14 font-sans text-parchment">
+      <div class="grid gap-10 pb-12 md:grid-cols-[2fr_1fr_1fr]">
+        <div>
+          <a href="#" class="font-display text-[35px] leading-tight">
+            Rutgers
+            <br />
+            <span class="italic">Formula Racing.</span>
+          </a>
+          <p class="section-label mt-5 text-[12px] text-parchment/75">
+            New Brunswick, New Jersey
+            <br />
+            Built with Rutgers pride, since 1989.
+          </p>
+        </div>
+        <div>
+          <p class="section-label mb-5 text-[12px] text-parchment/75">Explore</p>
+          <nav class="grid gap-3 text-[14px] leading-relaxed" aria-label="Footer navigation">
+            <a href="#about" class="hover:underline">
+              Our story
+            </a>
+            <a href="#cars" class="hover:underline">
+              The car
+            </a>
+            <a href="#team" class="hover:underline">
+              The team
+            </a>
+            <a href="#partners" class="hover:underline">
+              Our partners
+            </a>
+          </nav>
+        </div>
+        <div>
+          <p class="section-label mb-5 text-[12px] text-parchment/75">Get in touch</p>
+          <a
+            href="mailto:rutgerssae@gmail.com"
+            class="text-[14px] hover:underline"
+          >
+            rutgerssae@gmail.com
+          </a>
+          <p class="mt-4 text-[14px] leading-[1.8] text-parchment/85">
+            140 Bevier Road
+            <br />
+            Piscataway, NJ 08854
+          </p>
+          <a href="#join" class="text-link mt-3">
+            Join the team <ArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-4 border-t border-parchment/20 pt-6 section-label text-[12px] text-parchment/75">
+        <span>© {new Date().getFullYear()} Rutgers Formula Racing</span>
+        <a href="#" class="flex items-center gap-2 hover:text-parchment">
+          Back to top <ArrowUpRight size={13} aria-hidden="true" />
+        </a>
+      </div>
     </footer>
 
     <script>
-      const toggle = document.querySelector<HTMLButtonElement>('#menu-toggle');
-      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+      const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
+      const menu = document.querySelector<HTMLElement>("#mobile-menu");
       function setMenu(open: boolean) {
-        toggle?.setAttribute('aria-expanded', String(open));
-        toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        toggle?.setAttribute("aria-expanded", String(open));
+        toggle?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
         if (menu) menu.hidden = !open;
-        document.querySelector('#menu-open-icon')?.classList.toggle('hidden', open);
-        document.querySelector('#menu-close-icon')?.classList.toggle('hidden', !open);
+        document
+          .querySelector("#menu-open-icon")
+          ?.classList.toggle("hidden", open);
+        document
+          .querySelector("#menu-close-icon")
+          ?.classList.toggle("hidden", !open);
       }
-      toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
-      menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
+      toggle?.addEventListener("click", () =>
+        setMenu(toggle.getAttribute("aria-expanded") !== "true"),
+      );
+      menu
+        ?.querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () => setMenu(false)),
+        );
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          toggle?.getAttribute("aria-expanded") === "true"
+        ) {
+          setMenu(false);
+          toggle.focus();
+        }
       });
-      window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => { if (event.matches) setMenu(false); });
+      window
+        .matchMedia("(min-width: 768px)")
+        .addEventListener("change", (event) => {
+          if (event.matches) setMenu(false);
+        });
 
-      const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.car-tab'));
-      const captions = ['From the drawing board to the racing line.', 'The best seat in the house. Built by the team around it.'];
+      const tabs = Array.from(
+        document.querySelectorAll<HTMLButtonElement>(".car-tab"),
+      );
+      const captions = [
+        "From the drawing board to the racing line.",
+        "The best seat in the house. Built by the team around it.",
+      ];
       let activeSlide = 0;
       function selectSlide(index: number, focus = false) {
         activeSlide = (index + tabs.length) % tabs.length;
         tabs.forEach((tab, i) => {
           const selected = i === activeSlide;
-          tab.setAttribute('aria-selected', String(selected));
+          tab.setAttribute("aria-selected", String(selected));
           tab.tabIndex = selected ? 0 : -1;
-          const panel = document.getElementById(tab.getAttribute('aria-controls')!);
+          const panel = document.getElementById(
+            tab.getAttribute("aria-controls")!,
+          );
           if (panel) panel.hidden = !selected;
         });
-        const count = document.getElementById('gallery-count');
-        const caption = document.getElementById('gallery-caption');
+        const count = document.getElementById("gallery-count");
+        const caption = document.getElementById("gallery-caption");
         if (count) count.textContent = `0${activeSlide + 1} / 02`;
         if (caption) caption.textContent = captions[activeSlide];
         if (focus) tabs[activeSlide].focus();
       }
       tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => selectSlide(index));
-        tab.addEventListener('keydown', (event) => {
-          if (['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
+        tab.addEventListener("click", () => selectSlide(index));
+        tab.addEventListener("keydown", (event) => {
+          if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) {
             event.preventDefault();
-            selectSlide(event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : activeSlide + (event.key === 'ArrowRight' ? 1 : -1), true);
+            selectSlide(
+              event.key === "Home"
+                ? 0
+                : event.key === "End"
+                  ? tabs.length - 1
+                  : activeSlide + (event.key === "ArrowRight" ? 1 : -1),
+              true,
+            );
           }
         });
       });
-      document.querySelector('#gallery-prev')?.addEventListener('click', () => selectSlide(activeSlide - 1));
-      document.querySelector('#gallery-next')?.addEventListener('click', () => selectSlide(activeSlide + 1));
+      document
+        .querySelector("#gallery-prev")
+        ?.addEventListener("click", () => selectSlide(activeSlide - 1));
+      document
+        .querySelector("#gallery-next")
+        ?.addEventListener("click", () => selectSlide(activeSlide + 1));
     </script>
   </body>
 </html>

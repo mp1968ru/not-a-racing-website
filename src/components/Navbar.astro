@@ -1,0 +1,71 @@
+---
+import { ArrowUpRight, Menu, X } from "lucide-astro";
+---
+
+<header class="sticky top-0 z-40 border-b border-obsidian/15 bg-[#fff]">
+      <div class="page-gutter flex h-[88px] items-center justify-between gap-6 max-md:h-[76px]">
+        <a
+          href="#"
+          class="flex items-center gap-4 text-oxblood"
+          aria-label="Rutgers Formula Racing home"
+        >
+          <span class="wordmark border-oxblood/30 pr-4">RFR</span>
+          
+        </a>
+        <nav
+          class="hidden items-center gap-8 md:flex font-sans"
+          aria-label="Main navigation"
+        >
+          <a href="#about" class="navigation-link">
+            Our story
+          </a>
+          <a href="#cars" class="navigation-link">
+            The car
+          </a>
+          <a href="#team" class="navigation-link">
+            The team
+          </a>
+          <a href="#partners" class="navigation-link">
+            Our partners
+          </a>
+        </nav>
+        <a
+          href="#join"
+          class="hidden items-center gap-7 bg-oxblood px-5 py-3.5 text-[12px] font-sans md:flex text-white"
+        >
+          Join the team <ArrowUpRight size={16} aria-hidden="true" />
+        </a>
+        <button
+          id="menu-toggle"
+          class="grid h-11 w-11 place-items-center md:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <Menu id="menu-open-icon" size={24} />
+          <X id="menu-close-icon" size={24} class="hidden" />
+        </button>
+      </div>
+      <nav
+        id="mobile-menu"
+        class="mobile-menu page-gutter pb-6 md:hidden"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <a href="#about">
+          Our story <ArrowUpRight size={20} />
+        </a>
+        <a href="#cars">
+          The car <ArrowUpRight size={20} />
+        </a>
+        <a href="#team">
+          The team <ArrowUpRight size={20} />
+        </a>
+        <a href="#partners">
+          Our partners <ArrowUpRight size={20} />
+        </a>
+        <a href="#join" class="text-oxblood">
+          Join the team <ArrowUpRight size={20} />
+        </a>
+      </nav>
+    </header>

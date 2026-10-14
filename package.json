@@ -14,7 +14,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.5",
+    "install": "^0.13.0",
     "lucide-astro": "^0.556.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
     "tailwindcss": "^4.3.3"
   },
   "allowScripts": {
