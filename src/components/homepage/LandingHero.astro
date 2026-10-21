@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import { ArrowDown } from "lucide-astro";
+import carPhoto from "../../assets/rfr-hero.jpg";
+---
+
+<section id="cars" class="landing-hero" aria-labelledby="hero-title">
+  <div class="landing-hero__media">
+    <Image
+      src={carPhoto}
+      alt="Rutgers Formula Racing's red, white, and black Formula SAE car"
+      layout="full-width"
+      width={2400}
+      widths={[640, 960, 1440, 1920, 2400, 3000]}
+      sizes="(max-width: 767px) 180vw, (min-width: 2000px) 2000px, 100vw"
+      format="webp"
+      quality={85}
+      priority
+    />
+  </div>
+
+  <div class="landing-hero__content page-gutter">
+    <h1 id="hero-title" class="landing-hero__title font-display font-normal">
+      Rutgers
+      <br />
+      <span class="italic">Formula Racing.</span>
+    </h1>
+
+    <div class="flex justify-end">
+      <a
+        href="#about"
+        class="landing-hero__scroll ml-auto"
+        aria-label="Scroll to our story"
+      >
+        <span class="section-label">Our story</span>
+        <span class="icon-button">
+          <ArrowDown aria-hidden="true" />
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .landing-hero {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: max(38rem, calc(100svh - var(--site-header-height)));
+    overflow: hidden;
+    background: #000;
+    color: var(--color-parchment);
+  }
+
+  .landing-hero__media {
+    position: absolute;
+    z-index: -1;
+    bottom: 8%;
+    left: 50%;
+    width: 100%;
+    max-width: 2000px;
+    transform: translateX(-50%);
+  }
+
+  .landing-hero__media :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Fade the photograph itself to the same black as the surrounding section. */
+  .landing-hero__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, #000, transparent 8%, transparent 92%, #000),
+      linear-gradient(
+        180deg,
+        #000 0%,
+        transparent 24%,
+        transparent 92%,
+        #000 100%
+      );
+  }
+
+  .landing-hero__content {
+    display: flex;
+    min-height: inherit;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16rem;
+    padding-block: clamp(2rem, 5svh, 4rem);
+  }
+
+  .landing-hero__title {
+    font-size: clamp(3.25rem, 7.8vw, 8.25rem);
+    line-height: 0.97;
+    letter-spacing: -0.035em;
+  }
+
+  .landing-hero__copy {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .landing-hero__scroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    .landing-hero__media {
+      bottom: 22%;
+      width: 180%;
+    }
+
+    .landing-hero__title {
+      font-size: clamp(2.65rem, 10.8vw, 4.5rem);
+    }
+
+    .landing-hero__copy {
+      font-size: 0.9375rem;
+    }
+
+    .landing-hero__scroll > .section-label {
+      display: none;
+    }
+  }
+</style>

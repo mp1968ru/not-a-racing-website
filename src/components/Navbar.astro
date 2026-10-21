@@ -1,17 +1,23 @@
 ---
 import { ArrowUpRight, Menu, X } from "lucide-astro";
+
+interface Props {
+  theme?: "light" | "dark";
+}
+
+const { theme = "light" } = Astro.props;
+const isDark = theme === "dark";
 ---
 
-<header class="sticky top-0 z-40 border-b border-obsidian/15 bg-[#fff]">
-      <div class="page-gutter flex h-[88px] items-center justify-between gap-6 max-md:h-[76px]">
-        <a
-          href="#"
-          class="flex items-center gap-4 text-oxblood"
-          aria-label="Rutgers Formula Racing home"
-        >
-          <span class="wordmark border-oxblood/30 pr-4">RFR</span>
-          
-        </a>
+<header
+  class:list={[
+    "sticky top-0 z-40",
+    isDark
+      ? "bg-black text-parchment"
+      : "bg-white text-obsidian",
+  ]}
+>
+      <div class="page-gutter flex h-[88px] items-center justify-center gap-6 max-md:h-[76px]">
         <nav
           class="hidden items-center gap-8 md:flex font-sans"
           aria-label="Main navigation"
@@ -29,12 +35,15 @@ import { ArrowUpRight, Menu, X } from "lucide-astro";
             Our partners
           </a>
         </nav>
-        <a
+        <!-- <a
           href="#join"
-          class="hidden items-center gap-7 bg-oxblood px-5 py-3.5 text-[12px] font-sans md:flex text-white"
+          class:list={[
+            "hidden items-center gap-7 px-5 py-3.5 text-[12px] font-sans md:flex",
+            isDark ? "bg-parchment text-obsidian" : "bg-oxblood text-white",
+          ]}
         >
           Join the team <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
+        </a> -->
         <button
           id="menu-toggle"
           class="grid h-11 w-11 place-items-center md:hidden"
@@ -64,7 +73,7 @@ import { ArrowUpRight, Menu, X } from "lucide-astro";
         <a href="#partners">
           Our partners <ArrowUpRight size={20} />
         </a>
-        <a href="#join" class="text-oxblood">
+        <a href="#join" class:list={[!isDark && "text-oxblood"]}>
           Join the team <ArrowUpRight size={20} />
         </a>
       </nav>

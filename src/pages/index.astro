@@ -1,10 +1,10 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import LandingHero from "../components/homepage/LandingHero.astro";
 import "../styles/global.css";
 import {
   ArrowRight,
   ArrowUpRight,
-  ArrowDown,
   ArrowLeft,
   Menu,
   X,
@@ -76,63 +76,9 @@ const questions = [
     >
       Skip to content
     </a>
-    <Navbar />
+    <Navbar theme="dark" />
     <main id="main">
-      <section
-        class="hero relative isolate overflow-hidden text-parchment"
-        aria-labelledby="hero-title"
-      >
-        <picture class="absolute inset-0 -z-20">
-          <source
-            media="(max-width: 767px)"
-            srcset="/images/rfr-circuit.webp"
-          />
-          <!-- <img
-            src="/images/rfr-racing.webp"
-            alt="A student-built Rutgers Formula Racing car at the race circuit"
-            width="3000"
-            height="1338"
-            fetchpriority="high"
-            class="hero-image h-full w-full object-cover"
-          /> -->
-          <img
-            src="/images/todd.JPG"
-            alt="A student-built Rutgers Formula Racing car at the race circuit"
-            width="3000"
-            height="1338"
-            fetchpriority="high"
-            class="hero-image h-full w-full object-cover"
-          />
-        </picture>
-        <div class="hero-shade absolute inset-0 -z-10" aria-hidden="true"></div>
-        <div class="page-gutter flex h-full flex-col justify-between py-10 md:py-12">
-          <div>
-            <h1 id="hero-title" class="hero-title font-display font-normal">
-              Rutgers
-              <br />
-              <span class="italic">Formula Racing.</span>
-            </h1>
-          </div>
-          <div class="flex items-end justify-between gap-8 border-t border-parchment/40 pt-6">
-            <div>
-              <p class="mb-5 max-w-[330px] text-[17px] leading-relaxed">
-                Built by us.
-                <br />
-                Driven by possibility.
-              </p>
-            </div>
-
-            <a
-              href="#about"
-              class="icon-button shrink-0"
-              aria-label="Scroll to our story"
-              title="Our story"
-            >
-              <ArrowDown aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <LandingHero />
 
       <!-- <div class="page-gutter flex min-h-[54px] items-center justify-between gap-5 border-b border-obsidian/20 py-3 text-oxblood"><span class="section-label">Racing at Rutgers since 1989</span><span class="section-label hidden sm:block">Engineered with purpose. Built together.</span><Flag size={17} strokeWidth={1.5} aria-hidden="true" /></div> -->
 
@@ -150,12 +96,12 @@ const questions = [
 
           <div class="ml-auto max-w-[480px]">
             <div class="mt-8 grid gap-7 md:grid-cols-1 md:gap-12">
-              <p class="text-[16px] leading-[1.8]">
+              <p class="text-[16px] font-sans">
                 We are Rutgers Formula Racing. A team of students turning big
                 ideas into something you can hear, feel, and drive.
               </p>
               <div>
-                <p class="text-[14px] leading-[1.85] text-obsidian/70 font-sans">
+                <p class="text-[14px] text-obsidian/70 font-sans">
                   Every year, we design, build, and race a Formula SAE car.
                   Every day, we become better engineers, problem-solvers, and
                   teammates.
@@ -374,9 +320,7 @@ const questions = [
           <div>
             <div>
               <h2 id="partners-title" class="editorial-title">
-                Great things are
-                <br />
-                built <span class="italic text-oxblood">together.</span>
+                Great things are built <span class="italic text-oxblood">together.</span>
               </h2>
             </div>
           </div>
