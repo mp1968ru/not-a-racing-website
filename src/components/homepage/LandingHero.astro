@@ -20,10 +20,10 @@ import carPhoto from "../../assets/rfr-hero.jpg";
   </div>
 
   <div class="landing-hero__content page-gutter">
-    <h1 id="hero-title" class="landing-hero__title font-display font-normal">
+    <h1 id="hero-title" class="landing-hero__title font-display font-normal font-sans">
       Rutgers
       <br />
-      <span class="italic">Formula Racing.</span>
+      <span class="">Formula Racing.</span>
     </h1>
 
     <div class="flex justify-end">
@@ -46,7 +46,7 @@ import carPhoto from "../../assets/rfr-hero.jpg";
     position: relative;
     isolation: isolate;
     width: 100%;
-    min-height: max(38rem, calc(100svh - var(--site-header-height)));
+    min-height: max(38rem, 100svh);
     overflow: hidden;
     background: #000;
     color: var(--color-parchment);
@@ -92,6 +92,7 @@ import carPhoto from "../../assets/rfr-hero.jpg";
     justify-content: space-between;
     gap: 16rem;
     padding-block: clamp(2rem, 5svh, 4rem);
+    padding-top: calc(var(--site-header-height) + clamp(2rem, 5svh, 4rem));
   }
 
   .landing-hero__title {
